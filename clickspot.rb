@@ -9,3 +9,9 @@ end
 get "/" do
   "ok"
 end
+
+
+post '/click' do
+  click = Click.new(params)
+  click.save!  
+end
