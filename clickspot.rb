@@ -7,9 +7,9 @@ configure :development do
 end
 
 configure :production do
-  MongoMapper.connection = Mongo::Connection.new('staff.mongohq.com', 10010)
-  MongoMapper.database = 'clickspot'
-  MongoMapper.database.authenticate(ENV['clickspot'], ENV['clickspot'])
+  MongoMapper.connection = Mongo::Connection.new('staff.mongohq.com', 10012)
+  MongoMapper.database = 'app592827'
+  MongoMapper.database.authenticate('heroku', 'heroku')
 end
 
 get "/" do
