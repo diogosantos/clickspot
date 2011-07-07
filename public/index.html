@@ -6,8 +6,8 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-	$(document).click(function(e){
-		alert(e.pageX + ', ' + e.pageY + '\n' + new Date().toUTCString() + '\n' + location.href);
+	$(document).click(function(e){		
+		$.post("/click", { x: e.pageX, y: e.pageY, url: location.href } );
 	}); 
 })
 </script>
