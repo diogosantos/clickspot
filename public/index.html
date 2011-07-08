@@ -3,13 +3,17 @@
 	<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
 </head>	
 <body>
+	index
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
+	load();
+	
 	$(document).click(function(e){		
-		$.post("/click", { x: e.pageX, y: e.pageY, url: location.href } );
+	//	$.post("/click", { x: e.pageX, y: e.pageY, url: location.href } );
+		dot(e.pageX, e.pageY);
 	}); 
 })
 </script>
-<html>
+</html>
 

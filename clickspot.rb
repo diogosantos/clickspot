@@ -1,3 +1,4 @@
+require 'json'
 require 'rubygems'
 require 'sinatra'
 require './models/click'
@@ -19,4 +20,9 @@ end
 post '/click' do
   click = Click.new(params)
   click.save!  
+end
+
+get '/click/all/:url' do
+  content_type :json
+  { :clicks => Click.find_all_by_url("http://#{params[:url]}") }.to_json
 end
