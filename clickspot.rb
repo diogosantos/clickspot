@@ -6,7 +6,6 @@ require 'uri'
 
 configure :development do
   MongoMapper.database = 'clickspot'
-
   set :logging, true
 end
 
@@ -17,7 +16,7 @@ configure :production do
 end
 
 get "/" do
-  "ok"
+  File.read(File.join('public', 'index.html'))
 end
 
 post '/click' do
