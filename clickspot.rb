@@ -2,9 +2,12 @@ require 'json'
 require 'rubygems'
 require 'sinatra'
 require './models/click'
+require 'uri'
 
 configure :development do
   MongoMapper.database = 'clickspot'
+
+  set :logging, true
 end
 
 configure :production do
@@ -22,7 +25,7 @@ post '/click' do
   click.save!  
 end
 
-get '/click/all/:url' do
-  content_type :json
-  { :clicks => Click.find_all_by_url("http://#{params[:url]}") }.to_json
+get '/click/all' do
+  content_type :json  
+  { :clicks => Click.find_all_by_url( params[:url] ) }.to_json
 end
